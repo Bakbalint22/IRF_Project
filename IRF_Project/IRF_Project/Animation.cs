@@ -25,6 +25,8 @@ namespace IRF_Project
         {
             InitializeComponent();
             Factory = new BallFactory();
+            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -59,6 +61,17 @@ namespace IRF_Project
             }
 
             
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = panel2.CreateGraphics();
+            Brush black = new SolidBrush(Color.Black);
+            Pen bPen = new Pen(black, 10);
+            g.DrawLine(bPen, 40, 0, 130, 50);
+
+            g.FillRectangle(new SolidBrush(Color.Black), 40, 0, 10, 120);
+            g.FillRectangle(new SolidBrush(Color.Black), 120, 40, 10, 120);
         }
     }
 }

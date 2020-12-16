@@ -33,14 +33,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(98, 149);
+            this.panel1.Location = new System.Drawing.Point(81, 164);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(582, 186);
+            this.panel1.Size = new System.Drawing.Size(592, 133);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // timer1
             // 
@@ -63,11 +65,19 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(643, 61);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(159, 236);
+            this.panel2.TabIndex = 2;
+            // 
             // Animation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "Animation";
@@ -83,5 +93,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

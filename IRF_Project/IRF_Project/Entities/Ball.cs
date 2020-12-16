@@ -28,6 +28,7 @@ namespace IRF_Project.Entities
         {
             g.FillEllipse(new SolidBrush(Color.Black), 0, 0, Width, Height);
             g.FillEllipse(new SolidBrush(Color.White), 2, 2, 34, 34);
+            
         }
 
         public void MoveBall()
