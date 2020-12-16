@@ -82,16 +82,14 @@ namespace IRF_Project
             {
                 filterplayers.Add(player);
             }
-            
+            lbllu.Text = "The starting XI";
+
         }
 
         private void btnForwards_Click(object sender, EventArgs e)
         {
             filterplayers = new List<players>();
-
-
             
-
             foreach (var player in Chelsea)
             {
                 filterplayers.Add(player);
@@ -103,6 +101,7 @@ namespace IRF_Project
             }
 
             dataGridView1.DataSource = filterplayers;
+            lbllu.Text = "Forwards";
 
 
         }
@@ -122,6 +121,7 @@ namespace IRF_Project
             }
 
             dataGridView1.DataSource = filterplayers;
+            lbllu.Text = "Midfilders";
         }
 
         private void btnDefenders_Click(object sender, EventArgs e)
@@ -139,6 +139,7 @@ namespace IRF_Project
             }
 
             dataGridView1.DataSource = filterplayers;
+            lbllu.Text = "Defenders";
         }
 
         private void btnGoalkeepers_Click(object sender, EventArgs e)
@@ -156,6 +157,7 @@ namespace IRF_Project
             }
 
             dataGridView1.DataSource = filterplayers;
+            lbllu.Text = "Goal-keepers";
         }
 
         private void btnAnimation_Click(object sender, EventArgs e)
@@ -170,6 +172,9 @@ namespace IRF_Project
             Reload();
         }
 
-       
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

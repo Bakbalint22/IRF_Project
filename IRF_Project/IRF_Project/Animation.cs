@@ -15,7 +15,8 @@ namespace IRF_Project
     {
         private List<Ball> _balls = new List<Ball>();
         int a;
-
+        int chance;
+        Random rnd = new Random();
         private BallFactory _factory;
         public BallFactory Factory
         {
@@ -28,6 +29,8 @@ namespace IRF_Project
             Factory = new BallFactory();
 
             this.BackColor = Color.Green;
+
+            
             
 
         }
@@ -62,8 +65,32 @@ namespace IRF_Project
                 var oldestBall = _balls[0];
                 panel1.Controls.Remove(oldestBall);
                 _balls.Remove(oldestBall);
-                a++;
-                label1.Text = a.ToString();
+
+                chance = rnd.Next(1, 10) * 10;
+                lblchance.Text = chance.ToString();
+
+                if (chance > 7)
+                {
+                    a++;
+                    labelscore.Text = a.ToString();
+                    pBGoal.Visible = true;
+                    pBNoGoal.Visible = false;
+                    labeloutput.Text = "GOOOOAAAL";
+                    if (a == 10)
+                    {
+                        timer1.Stop();
+                        timer2.Stop();
+                        MessageBox.Show("It was humiliating!");
+                        Application.Exit();
+                    }
+                }
+                else
+                {
+                    pBGoal.Visible = false;
+                    pBNoGoal.Visible = true;
+                    labeloutput.Text = "MISS :(";
+                }
+                
             }
 
             
