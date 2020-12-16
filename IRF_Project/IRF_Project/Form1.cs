@@ -15,6 +15,7 @@ namespace IRF_Project
     public partial class Form1 : Form
     {
         BindingList<players> Chelsea = new BindingList<players>();
+        List<players> filterplayers;
         XmlDocument xml = new XmlDocument();
 
         public Form1()
@@ -54,7 +55,7 @@ namespace IRF_Project
 
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
-                foreach (var c in Chelsea)
+                foreach (var c in filterplayers)
                 {
                     sw.Write(c.Name);
                     sw.Write(";");
@@ -74,79 +75,87 @@ namespace IRF_Project
 
         private void Reload()
         {
+            
             dataGridView1.DataSource = Chelsea;
-
-            foreach (XmlElement element in xml.DocumentElement)
+            filterplayers = new List<players>();
+            foreach (var player in Chelsea)
             {
-                var player = new players();
-                Chelsea.Add(player);
-
-                player.Name = element.GetAttribute("name");
-
-                var childElement = (XmlElement)element.ChildNodes[0];
-                player.Country = childElement.GetAttribute("country");
-                player.BirthDate = childElement.GetAttribute("born");
-                player.Position = childElement.GetAttribute("position");
-                player.Goals = childElement.GetAttribute("goals");
+                filterplayers.Add(player);
             }
+            
         }
 
         private void btnForwards_Click(object sender, EventArgs e)
         {
+            filterplayers = new List<players>();
+
 
             
 
-            List<players> forwards = new List<players>();
-
             foreach (var player in Chelsea)
             {
-                forwards.Add(player);
+                filterplayers.Add(player);
                 if (player.Position != "Forward")
                 {
-                    forwards.Remove(player);
+                    
+                    filterplayers.Remove(player);
                 }
             }
 
-            dataGridView1.DataSource = forwards;
+            dataGridView1.DataSource = filterplayers;
+
+
         }
 
         private void btnMidfilders_Click(object sender, EventArgs e)
         {
-            List<players> midfilders = new List<players>();
+            filterplayers = new List<players>();
 
             foreach (var player in Chelsea)
             {
-                midfilders.Add(player);
+                filterplayers.Add(player);
                 if (player.Position != "Midfilder")
                 {
-                    midfilders.Remove(player);
+
+                    filterplayers.Remove(player);
                 }
             }
 
-            dataGridView1.DataSource = midfilders;
+            dataGridView1.DataSource = filterplayers;
         }
 
         private void btnDefenders_Click(object sender, EventArgs e)
         {
-            List<players> midfilders = new List<players>();
+            filterplayers = new List<players>();
 
             foreach (var player in Chelsea)
             {
-                midfilders.Add(player);
-                if (player.Position != "Midfilder")
+                filterplayers.Add(player);
+                if (player.Position != "Defender")
                 {
-                    midfilders.Remove(player);
+
+                    filterplayers.Remove(player);
                 }
             }
 
-            dataGridView1.DataSource = midfilders;
+            dataGridView1.DataSource = filterplayers;
         }
 
         private void btnGoalkeepers_Click(object sender, EventArgs e)
         {
-            Reload();
+            filterplayers = new List<players>();
 
-            dataGridView1.DataSource = Chelsea;
+            foreach (var player in Chelsea)
+            {
+                filterplayers.Add(player);
+                if (player.Position != "Goal-keeper")
+                {
+
+                    filterplayers.Remove(player);
+                }
+            }
+
+            dataGridView1.DataSource = filterplayers;
         }
 
         private void btnAnimation_Click(object sender, EventArgs e)
@@ -160,5 +169,7 @@ namespace IRF_Project
         {
             Reload();
         }
+
+       
     }
 }

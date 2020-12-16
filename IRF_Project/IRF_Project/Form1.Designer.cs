@@ -49,7 +49,7 @@
             // 
             // buttonWrite
             // 
-            this.buttonWrite.Location = new System.Drawing.Point(656, 103);
+            this.buttonWrite.Location = new System.Drawing.Point(656, 79);
             this.buttonWrite.Name = "buttonWrite";
             this.buttonWrite.Size = new System.Drawing.Size(99, 34);
             this.buttonWrite.TabIndex = 1;
@@ -109,7 +109,7 @@
             // 
             // btnReload
             // 
-            this.btnReload.Location = new System.Drawing.Point(656, 41);
+            this.btnReload.Location = new System.Drawing.Point(656, 12);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(99, 34);
             this.btnReload.TabIndex = 8;
