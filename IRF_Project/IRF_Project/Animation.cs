@@ -14,6 +14,7 @@ namespace IRF_Project
     public partial class Animation : Form
     {
         private List<Ball> _balls = new List<Ball>();
+        int a;
 
         private BallFactory _factory;
         public BallFactory Factory
@@ -41,25 +42,28 @@ namespace IRF_Project
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            int a = 0;
+          
             var maxPosition = 0;
+           
             foreach (var ball in _balls)
             {
                 ball.MoveBall();
                 if (ball.Left > maxPosition)
                 {
+                   
                     maxPosition = ball.Left;
-                    a++;
-                    label1.Text = a.ToString();
+                   
                 }
             }
 
-            if (maxPosition > 1000)
+            if (maxPosition > 550)
             {
 
                 var oldestBall = _balls[0];
                 panel1.Controls.Remove(oldestBall);
                 _balls.Remove(oldestBall);
+                a++;
+                label1.Text = a.ToString();
             }
 
             
