@@ -14,8 +14,8 @@ namespace IRF_Project.Entities
         public Ball()
         {
             AutoSize = false;
-            Width = 30;
-            Height = 30;
+            Width = 38;
+            Height = 38;
 
             Paint += Ball_Paint;
         }
@@ -27,7 +27,7 @@ namespace IRF_Project.Entities
         protected void DrawImage(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Black), 0, 0, Width, Height);
-            g.FillEllipse(new SolidBrush(Color.White), 0, 0, 28, 28);
+            g.FillEllipse(new SolidBrush(Color.White), 2, 2, 34, 34);
         }
 
         public void MoveBall()
