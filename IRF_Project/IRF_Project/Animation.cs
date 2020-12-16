@@ -25,6 +25,7 @@ namespace IRF_Project
         {
             InitializeComponent();
             Factory = new BallFactory();
+
             this.BackColor = Color.Green;
             
 
@@ -73,6 +74,11 @@ namespace IRF_Project
             g.DrawLine(bPen, 40, 0, 130, 50);
             g.FillRectangle(new SolidBrush(Color.Black), 40, 0, 10, 120);
             g.FillRectangle(new SolidBrush(Color.Black), 120, 40, 10, 120);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -70,7 +70,9 @@ namespace IRF_Project
             }
         }
 
-        private void Reload_Click(object sender, EventArgs e)
+       
+
+        private void Reload()
         {
             dataGridView1.DataSource = Chelsea;
 
@@ -89,26 +91,60 @@ namespace IRF_Project
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnForwards_Click(object sender, EventArgs e)
         {
 
-            dataGridView1.DataSource = Chelsea;
+            
+
+            List<players> forwards = new List<players>();
+
+            foreach (var player in Chelsea)
+            {
+                forwards.Add(player);
+                if (player.Position != "Forward")
+                {
+                    forwards.Remove(player);
+                }
+            }
+
+            dataGridView1.DataSource = forwards;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnMidfilders_Click(object sender, EventArgs e)
         {
+            List<players> midfilders = new List<players>();
 
-            dataGridView1.DataSource = Chelsea;
+            foreach (var player in Chelsea)
+            {
+                midfilders.Add(player);
+                if (player.Position != "Midfilder")
+                {
+                    midfilders.Remove(player);
+                }
+            }
+
+            dataGridView1.DataSource = midfilders;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnDefenders_Click(object sender, EventArgs e)
         {
+            List<players> midfilders = new List<players>();
 
-            dataGridView1.DataSource = Chelsea;
+            foreach (var player in Chelsea)
+            {
+                midfilders.Add(player);
+                if (player.Position != "Midfilder")
+                {
+                    midfilders.Remove(player);
+                }
+            }
+
+            dataGridView1.DataSource = midfilders;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnGoalkeepers_Click(object sender, EventArgs e)
         {
+            Reload();
 
             dataGridView1.DataSource = Chelsea;
         }
@@ -118,6 +154,11 @@ namespace IRF_Project
             this.Hide();
             Animation anim = new Animation();
             anim.Show();
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            Reload();
         }
     }
 }
