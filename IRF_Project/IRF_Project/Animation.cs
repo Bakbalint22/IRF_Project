@@ -69,7 +69,7 @@ namespace IRF_Project
                 chance = rnd.Next(1, 10) * 10;
                 lblchance.Text = chance.ToString();
 
-                if (chance > 7)
+                if (chance > 70)
                 {
                     a++;
                     labelscore.Text = a.ToString();

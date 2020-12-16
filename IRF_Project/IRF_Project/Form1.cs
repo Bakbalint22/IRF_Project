@@ -12,16 +12,16 @@ using System.Xml;
 
 namespace IRF_Project
 {
-    public partial class Form1 : Form
+    public partial class Menu : Form
     {
         BindingList<players> Chelsea = new BindingList<players>();
         List<players> filterplayers;
         XmlDocument xml = new XmlDocument();
 
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
-
+            
             
             xml.Load("chelsea.xml");
 
@@ -82,7 +82,7 @@ namespace IRF_Project
             {
                 filterplayers.Add(player);
             }
-            lbllu.Text = "The starting XI";
+            lbllu.Text = "The squad";
 
         }
 
